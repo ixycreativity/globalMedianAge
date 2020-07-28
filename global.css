@@ -1,0 +1,580 @@
+body{
+    font-family: 'Roboto', sans-serif;
+}
+#header{
+  height:10vh;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+#header div{
+  width:100%;
+}
+#titlu{
+  height:10vh;
+
+}
+a{
+  color:#32a852;
+}
+#titlu h1{
+    font-family: 'Roboto', sans-serif;
+    padding: 0;
+    font-size:30px;
+    line-height:30px;
+    margin:5px 0px 0px 30px;
+    text-transform: uppercase;
+}
+#titlu h2{
+  font-family: 'Roboto', sans-serif;
+  padding: 0;
+  font-size:16px;
+  line-height:16px;
+  margin:5px 0px 0px 30px;
+}
+#indication p{
+  text-align:center;
+  color:red;
+}
+#source{
+  text-align: right;
+}
+#about{
+  display:flex;
+width:96%;
+margin-top: 82vh;
+margin-left: auto;
+margin-right: auto;
+}
+#aboutleft, #aboutright{
+  width: 100%;
+  padding-right:40px;
+}
+#about h2{
+  text-transform: uppercase;
+}
+
+
+#population{
+  width:100%;
+  height:85vh;
+  max-width:100%;
+  display:flex;
+  border-top:2px solid black;
+  margin:0px auto;
+  background:gray;
+  position:absolute;
+  top:10vh;
+  left:0px;
+  background: red url("images/1_verde.jpg") no-repeat center;
+    background-size: 100% 100%;
+
+}
+.half{
+  width:50%;
+  height:100%;
+  margin:0;
+  position:relative;
+  overflow:hidden;
+  display:block;
+}
+#half1{
+    width:100%;
+    border-right:2px solid red;
+}
+#half2{
+  border-left:2px solid red;
+    width:100%;
+}
+#half2 .om{
+
+}
+.om{
+  position:absolute;
+  width:39px;
+  height:100px;
+  background: transparent url("images/omuletz.PNG") no-repeat top left;
+  overflow:visible;
+}
+
+.om1, .om2, .om3, .om4, .om5, .om6, .om7, .om8, .om9, .om10{
+  top:5%;
+}
+.om11, .om12, .om13, .om14, .om15, .om16, .om17, .om18, .om19, .om20{
+  top:24%;
+}
+.om21, .om22, .om23, .om24, .om25, .om26, .om27, .om28, .om29, .om30{
+  top:43%;
+}
+.om31, .om32, .om33, .om34, .om35, .om36, .om37, .om38, .om39, .om40{
+  top:62%;
+}
+.om41, .om42, .om43, .om44, .om45, .om46, .om47, .om48, .om49, .om50{
+  top:81%;
+}
+.om1, .om11, .om21, .om31, .om41{
+  left:1%;
+}
+.om2, .om12, .om22, .om32, .om42{
+  left:10%;
+}
+.om3, .om13, .om23, .om33, .om43{
+  left:20%;
+}
+.om4, .om14, .om24, .om34, .om44{
+  left:30%;
+}
+.om5, .om15, .om25, .om35, .om45{
+  left:40%;
+}
+.om6, .om16, .om26, .om36, .om46{
+  left:50%;
+}
+.om7, .om17, .om27, .om37, .om47{
+  left:60%;
+}
+.om8, .om18, .om28, .om38, .om48{
+  left:70%;
+}
+.om9, .om19, .om29, .om39, .om49{
+  left:80%;
+}
+.om10, .om20, .om30, .om40, .om50{
+  left:90%;
+}
+.om11, .om31{
+  left:5%;
+}
+.om12, .om32{
+  left:15%;
+}
+.om13, .om33{
+  left:25%;
+}
+.om14, .om34{
+  left:35%;
+}
+.om15, .om35{
+  left:45%;
+}
+.om16, .om36{
+  left:55%;
+}
+.om17, .om37{
+  left:65%;
+}
+.om18, .om38{
+  left:75%;
+}
+.om19, .om39{
+  left:85%;
+}
+.om20, .om40{
+  left:95%;
+}
+
+/*axis*/
+#axis{
+  width:100%;
+  height:40px;
+  position:absolute;
+  bottom:0;
+  left:0;
+  display:flex;
+  background:#000;
+}
+.fiveyears{
+  height:40px;
+  border-left: 2px solid red;
+  width:100%;
+  display:flex;
+  position:relative;
+}
+.fiveyears small{
+  color:#fff;
+  font-family: "Arial", "Helvetica", sans-serif;
+  position:absolute;
+  bottom:2px;
+  left:1px;
+}
+.year{
+  height:20px;
+  border-left: 1px solid red;
+  width:100%;
+  display: flex;
+  position: relative;
+}
+.year p{
+  position: absolute;
+  color:#fff;
+  bottom: -10px;
+  left:0;
+  font-size:8px;
+}
+.firstyear{
+    border-left: 1px solid black;
+}
+.halfyear{
+  height:10px;
+  border-left:1px solid red;
+  width:100%;
+}
+.firsthalfyear{
+  border-left:0px solid yellow;
+}
+.has{
+  background: #fff;
+}
+.ui-resizable-e, .ui-resizable-s{
+  display:none!important;
+}
+.ui-resizable-handle{
+  width:24px!important;
+  height:100%!important;
+  right:-4px;
+      cursor: w-resize;
+      background: transparent!important;
+}
+.ui-icon-alert{
+  background: transparent!important;
+}
+/*end axis*/
+/*countries with flags*/
+.country{
+  width:39px;
+  height:100px;
+  display:none;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+.country h3{
+  text-transform: uppercase;
+  font-size:12px;
+  color:#000;
+  padding: 2px;
+  position: absolute;
+  top:-36px;
+  left:-10px;
+  text-align: left;
+  white-space: nowrap;
+  font-family: 'Roboto', sans-serif;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+}
+.country h3 span{
+    white-space: nowrap;
+      text-transform: lowercase;
+        font-size:10px;
+}
+.country img{
+  width:60px;
+  height:auto;
+  margin-left:-10px;
+  margin-top:10px;
+  -webkit-box-shadow: 4px 4px 13px -3px rgba(0,0,0,0.75);
+-moz-box-shadow: 4px 4px 13px -3px rgba(0,0,0,0.75);
+box-shadow: 4px 4px 13px -3px rgba(0,0,0,0.75);
+-webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+     -moz-user-select: none; /* Firefox */
+      -ms-user-select: none; /* Internet Explorer/Edge */
+          user-select: none;
+}
+.nigeria img{
+  margin-top:23px;
+}
+.saotome img{
+  margin-top:23px;
+}
+.senegal img{
+  margin-top:15px;
+}
+.afghanistan img{
+  margin-top:23px;
+}
+.zimbabwe img{
+  margin-top:20px;
+}
+.guineabissau img{
+  margin-top:23px;
+}
+.azerbaijan img{
+  margin-top:23px;
+}
+.vanuatu img{
+  margin-top:16px;
+}
+.jordan img{
+  margin-top:20px;
+}
+.solomonislands img{
+  margin-top:21px;
+}
+.marshallislands img{
+  margin-top:21px;
+}
+.honduras img{
+  margin-top:16px;
+}
+.tonga img{
+  margin-top:21px;
+}
+.tajikistan img{
+  margin-top:20px;
+}
+.kiribati img{
+  margin-top:16px;
+}
+.micronesia img{
+  margin-top:21px;
+}
+.caboverde img{
+  margin-top:15px;
+}
+.americansamoa img{
+  margin-top:21px;
+}
+.oman img{
+  margin-top:21px;
+}
+.nicaragua img{
+  margin-top:15px;
+}
+.tuvalu img{
+  margin-top:21px;
+}
+.jamaica img{
+  margin-top:21px;
+}
+.nauru img{
+  margin-top:21px;
+}
+.kyrgyzstan img{
+  margin-top:15px;
+}
+.bangladesh img{
+  margin-top:15px;
+}
+.elsalvador img{
+  margin-top:15px;
+}
+.ecuador img{
+  margin-top:21px;
+}
+.turkmenistan img{
+  margin-top:21px;
+}
+.mexico img{
+  margin-top:17px;
+}
+.mongolia img{
+  margin-top:20px;
+}
+.malaysia img{
+  margin-top:20px;
+}
+.uzbekistan img{
+  margin-top:20px;
+}
+.fiji img{
+  margin-top:21px;
+}
+.kuwait img{
+  margin-top:21px;
+}
+.brunei img{
+  margin-top:21px;
+}
+.iran img{
+  margin-top:19px;
+}
+.uae img{
+  margin-top:23px;
+}
+.kazakhstan img{
+  margin-top:23px;
+}
+.costarica img{
+  margin-top:15px;
+}
+.grenada img{
+  margin-top:15px;
+}
+.argentina img{
+  margin-top:23px;
+}
+.antiguaandbarbuda img{
+    margin-top:15px;
+}
+.frenchpolynesia img{
+    margin-top:15px;
+}
+.thebahamas img{
+    margin-top:21px;
+}
+.bahrain img{
+    margin-top:15px;
+}
+.srilanka img{
+  margin-top:23px;
+}
+.montserrat img{
+  margin-top:21px;
+}
+.qatar img{
+  margin-top:20px;
+}
+.turkscaiacos img{
+  margin-top:22px;
+}
+.palau img{
+    margin-top:15px;
+}
+.dominica img{
+  margin-top:23px;
+}
+.northkorea img{
+  margin-top:23px;
+}
+.gibraltar img{
+  margin-top:23px;
+}
+.anguilla img{
+  margin-top:23px;
+}
+.saintlucia img{
+  margin-top:23px;
+}
+.armenia img{
+  margin-top:20px;
+}
+.seychelles img{
+  margin-top:20px;
+}
+.trinidadandtobago img{
+    margin-top:15px;
+}
+.britishvirginislands img{
+  margin-top:23px;
+}
+.cookislands img{
+  margin-top:23px;
+}
+.moldova img{
+  margin-top:23px;
+}
+.cyprus img{
+  margin-top:15px;
+}
+.ireland img{
+  margin-top:22px;
+}
+.newzealand img{
+  margin-top:22px;
+}
+.northmacedonia img{
+  margin-top:22px;
+}
+.unitedstates img{
+  margin-top:22px;
+}
+.australia img{
+  margin-top:22px;
+}
+.luxembourg img{
+  margin-top:14px;
+}
+.belarus img{
+  margin-top:22px;
+}
+.caymanislands img{
+  margin-top:22px;
+}
+.unitedkingdom img{
+  margin-top:17px;
+}
+.romania img{
+  margin-top:15px;
+}
+.cuba img{
+  margin-top:22px;
+}
+.bosnia img{
+  margin-top:22px;
+}
+.canada img{
+  margin-top:22px;
+}
+.finland img{
+  margin-top:15px;
+}
+.netherlands img{
+  margin-top:13px;
+}
+.croatia img{
+  margin-top:22px;
+}
+.liechtenstein img{
+  margin-top:13px;
+}
+.bermuda img{
+  margin-top:22px;
+}
+.latvia img{
+  margin-top:22px;
+}
+.lithuania img{
+  margin-top:22px;
+}
+.slovenia img{
+  margin-top:22px;
+}
+.greece img{
+  margin-top:12px;
+}
+.saintpierre img{
+  margin-top:12px;
+}
+.easttimor img{
+  margin-top:22px;
+}
+.southsudan img{
+  margin-top:20px;
+}
+.palestinewestbank img{
+  margin-top:22px;
+}
+.westernsahara img{
+  margin-top:20px;
+}
+.libya img{
+  margin-top:22px;
+}
+.northernmarian img{
+  margin-top:20px;
+}
+.jersey img{
+  margin-top:14px;
+}
+.montenegro img{
+  margin-top:20px;
+}
+.sainthelena img{
+  margin-top:22px;
+}
+.isleofman img{
+  margin-top:22px;
+}
+.active {display:block;}
+
+
+/*end countries with flags*/

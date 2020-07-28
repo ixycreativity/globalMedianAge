@@ -1,0 +1,696 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Global median age</title>
+  <meta name="description" content="Global median age">
+  <meta name="author" content="Alexandra Muresan">
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+ <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+ <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="global.css">
+  <script src="jquery-1.12.4.js"></script>
+  <script src="jquery-ui.js"></script>
+  <script>
+
+  jQuery( function() {
+      jQuery( "#half1" ).resizable({
+      containment: "#population",
+       alsoResizeReverse: "#half2",
+       resize: function(event, ui) {
+                ui.size.height = ui.originalSize.height;
+              }
+    });
+  } );
+  $.ui.plugin.add("resizable", "alsoResizeReverse", {
+
+    start: function() {
+        var that = $(this).resizable( "instance" ),
+            o = that.options;
+
+        $(o.alsoResizeReverse).each(function() {
+            var el = $(this);
+            el.data("ui-resizable-alsoresizeReverse", {
+                width: parseInt(el.width(), 10), height: parseInt(el.height(), 10),
+                left: parseInt(el.css("left"), 10), top: parseInt(el.css("top"), 10)
+            });
+        });
+    },
+
+    resize: function(event, ui) {
+        var that = $(this).resizable( "instance" ),
+            o = that.options,
+            os = that.originalSize,
+            op = that.originalPosition,
+            delta = {
+                height: (that.size.height - os.height) || 0,
+                width: (that.size.width - os.width) || 0,
+                top: (that.position.top - op.top) || 0,
+                left: (that.position.left - op.left) || 0
+            };
+
+        $(o.alsoResizeReverse).each(function() {
+            var el = $(this), start = $(this).data("ui-resizable-alsoresize-reverse"), style = {},
+                css = el.parents(ui.originalElement[0]).length ?
+                    [ "width" ] :
+                    [ "width", "top", "left" ];
+
+            $.each(css, function(i, prop) {
+                var sum = (start[prop] || 0) - (delta[prop] || 0);
+                if (sum && sum >= 0) {
+                    style[prop] = sum || null;
+                }
+            });
+
+            el.css(style);
+        });
+    },
+
+    stop: function() {
+        $(this).removeData("resizable-alsoresize-reverse");
+    }
+});
+divW = 0; totalw = 0;
+jQuery(document).ready(function(){
+    divW = jQuery("#half1").width();
+});
+function checkResize(){
+    let w = jQuery("#half1").width();
+    totalw = jQuery("#population").width();
+    if (w != divW) { //daca se misca
+        divW = w;
+
+      const  ani15 = 15 * totalw / 75;
+      const ani15j = 15.5 * totalw / 75;
+      const  ani16 = 16 * totalw / 75;
+      const ani16j = 16.5 * totalw / 75;
+      const  ani17 = 17 * totalw / 75;
+      const ani17j = 17.5 * totalw / 75;
+      const  ani18 = 18 * totalw / 75;
+      const ani18j = 18.5 * totalw / 75;
+      const  ani19 = 19 * totalw / 75;
+      const ani19j = 19.5 * totalw / 75;
+      const  ani20 = 20 * totalw / 75;
+      const ani20j = 20.5 * totalw / 75;
+      const  ani21 = 21 * totalw / 75;
+      const ani21j = 21.5 * totalw / 75;
+      const  ani22 = 22 * totalw / 75;
+      const ani22j = 22.5 * totalw / 75;
+      const  ani23 = 23 * totalw / 75;
+      const ani23j = 23.5 * totalw / 75;
+      const  ani24 = 24 * totalw / 75;
+      const ani24j = 24.5 * totalw / 75;
+      const  ani25 = 25 * totalw / 75;
+      const ani25j = 25.5 * totalw / 75;
+      const  ani26 = 26 * totalw / 75;
+      const ani26j = 26.5 * totalw / 75;
+      const  ani27 = 27 * totalw / 75;
+      const ani27j = 27.5 * totalw / 75;
+      const  ani28 = 28 * totalw / 75;
+      const ani28j = 28.5 * totalw / 75;
+      const  ani29 = 29 * totalw / 75;
+      const ani29j = 29.5 * totalw / 75;
+      const  ani30 = 30 * totalw / 75;
+      const ani30j = 30.5 * totalw / 75;
+      const  ani31 = 31 * totalw / 75;
+      const ani31j = 31.5 * totalw / 75;
+      const  ani32 = 32 * totalw / 75;
+      const ani32j = 32.5 * totalw / 75;
+      const  ani33 = 33 * totalw / 75;
+      const ani33j = 33.5 * totalw / 75;
+      const  ani34 = 34 * totalw / 75;
+      const ani34j = 34.5 * totalw / 75;
+      const  ani35 = 35 * totalw / 75;
+      const ani35j = 35.5 * totalw / 75;
+      const  ani36 = 36 * totalw / 75;
+      const ani36j = 36.5 * totalw / 75;
+      const  ani37 = 37 * totalw / 75;
+      const ani37j = 37.5 * totalw / 75;
+      const  ani38 = 38 * totalw / 75;
+      const ani38j = 38.5 * totalw / 75;
+      const  ani39 = 39 * totalw / 75;
+      const ani39j = 39.5 * totalw / 75;
+      const  ani40 = 40 * totalw / 75;
+      const ani40j = 40.5 * totalw / 75;
+      const  ani41 = 41 * totalw / 75;
+      const ani41j = 41.5 * totalw / 75;
+      const  ani42 = 42 * totalw / 75;
+      const ani42j = 42.5 * totalw / 75;
+      const  ani43 = 43 * totalw / 75;
+      const ani43j = 43.5 * totalw / 75;
+      const  ani44 = 44 * totalw / 75;
+      const ani44j = 44.5 * totalw / 75;
+      const  ani45 = 45 * totalw / 75;
+      const ani45j = 45.5 * totalw / 75;
+      const  ani46 = 46 * totalw / 75;
+      const ani46j = 46.5 * totalw / 75;
+      const ani47 = 47 * totalw / 75;
+      const ani47j = 47.5 * totalw / 75;
+      const  ani53 = 53 * totalw / 75;
+      const ani53j = 53.5 * totalw / 75;
+        if ( ani15 < w && w < ani15j) { jQuery(".niger").addClass("active");}
+        else{ jQuery(".niger").removeClass("active");  }
+        if ( ani15j < w && w < ani16) { jQuery(".uganda, .mali, .angola").addClass("active");}
+        else{ jQuery(".uganda, .mali, .angola").removeClass("active");  }
+        if ( ani16j < w && w < ani17) { jQuery(".malawi, .zambia").addClass("active");}
+        else{ jQuery(".malawi, .zambia").removeClass("active");  }
+        if ( ani17 < w && w < ani17j) { jQuery(".burundi, .mozambique, .burkinafaso, .southsudan").addClass("active");}
+        else{ jQuery(".burundi, .mozambique, .burkinafaso, .southsudan").removeClass("active");  }
+        if ( ani17j < w && w < ani18) { jQuery(".tanzania, .chad, .ethiopia").addClass("active");}
+        else{ jQuery(".tanzania, .chad, .ethiopia").removeClass("active");  }
+        if ( ani18 < w && w < ani18j) { jQuery(".somalia, .benin, .nigeria, .saotome").addClass("active");}
+        else{ jQuery(".somalia, .benin, .nigeria, .saotome").removeClass("active");  }
+        if ( ani18j < w && w < ani19) { jQuery(".cameroon, .demrepcongo, .gabon, .senegal, .afghanistan, .easttimor, .guinea").addClass("active");}
+        else{ jQuery(".cameroon, .demrepcongo, .gabon, .senegal, .afghanistan, .easttimor, .guinea").removeClass("active");  }
+        if ( ani19 < w && w < ani19j) { jQuery(".rwanda, .sierraleone").addClass("active");}
+        else{ jQuery(".rwanda, .sierraleone").removeClass("active");  }
+        if ( ani19j < w && w < ani20) { jQuery(".yemen, .centralafricanrepublic, .repcongo, .eritrea, .kenya, .madagascar, .equatorialguinea, .togo, .comoros, .sudan").addClass("active");}
+        else{ jQuery(".yemen, .centralafricanrepublic, .repcongo, .eritrea, .kenya, .madagascar, .equatorialguinea, .togo, .comoros, .sudan").removeClass("active");  }
+        if ( ani20 < w && w < ani20j) { jQuery(".iraq, .zimbabwe, .guineabissau").addClass("active");}
+        else{ jQuery(".iraq, .zimbabwe, .guineabissau").removeClass("active");  }
+        if ( ani20j < w && w < ani21) { jQuery(".mauritania, .cotedivoire").addClass("active");}
+        else{ jQuery(".mauritania, .cotedivoire").removeClass("active");  }
+        if ( ani21 < w && w < ani21j) { jQuery(".thegambia, .ghana, .palestinewestbank, .westernsahara, .namibia, .azerbaijan").addClass("active");}
+        else{ jQuery(".thegambia, .ghana, .palestinewestbank, .westernsahara, .namibia, .azerbaijan").removeClass("active");  }
+        if ( ani21j < w && w < ani22) { jQuery(".eswatini").addClass("active");}
+        else{ jQuery(".eswatini").removeClass("active");  }
+        if ( ani22 < w && w < ani22j) { jQuery(".vanuatu, .guatemala").addClass("active");}
+        else{ jQuery(".vanuatu, .guatemala").removeClass("active");  }
+        if ( ani22j < w && w < ani23) { jQuery(".jordan, .solomonislands, .belize, .marshallislands").addClass("active");}
+        else{ jQuery(".jordan, .solomonislands, .belize, .marshallislands").removeClass("active");  }
+        if ( ani23 < w && w < ani23j) { jQuery(".haiti, .honduras, .laos, .tonga, .papuanewguinea").addClass("active");}
+        else{ jQuery(".haiti, .honduras, .laos, .tonga, .papuanewguinea").removeClass("active");  }
+        if ( ani23j < w && w < ani24) { jQuery(".philippines, .pakistan, .djibouti, .egypt").addClass("active");}
+        else{ jQuery(".philippines, .pakistan, .djibouti, .egypt").removeClass("active");  }
+        if ( ani24 < w && w < ani24j) { jQuery(".nepal, .lesotho, .bolivia, .syria, .samoa").addClass("active");}
+        else{ jQuery(".nepal, .lesotho, .bolivia, .syria, .samoa").removeClass("active");  }
+        if ( ani24j < w && w < ani25) { jQuery(".botswana, .tajikistan, .kiribati").addClass("active");}
+        else{ jQuery(".botswana, .tajikistan, .kiribati").removeClass("active");  }
+        if ( ani25 < w && w < ani25j) { jQuery(".micronesia, .cambodia, .caboverde").addClass("active");}
+        else{ jQuery(".micronesia, .cambodia, .caboverde").removeClass("active");  }
+        if ( ani25j < w && w < ani26) { jQuery(".americansamoa, .oman, .nicaragua, .tuvalu").addClass("active");}
+        else{ jQuery(".americansamoa, .oman, .nicaragua, .tuvalu").removeClass("active");  }
+        if ( ani26 < w && w < ani26j) { jQuery(".jamaica, .guyana, .nauru").addClass("active");}
+        else{ jQuery(".jamaica, .guyana, .nauru").removeClass("active");  }
+        if ( ani26j < w && w < ani27) { jQuery(".kyrgyzstan, .bangladesh").addClass("active");}
+        else{ jQuery(".kyrgyzstan, .bangladesh").removeClass("active");  }
+        if ( ani27 < w && w < ani27j) { jQuery(".elsalvador, .southafrica").addClass("active");}
+        else{ jQuery(".elsalvador, .southafrica").removeClass("active");  }
+        if ( ani27j < w && w < ani28) { jQuery(".saudiarabia, .bhutan, .ecuador, .turkmenistan").addClass("active");}
+        else{ jQuery(".saudiarabia, .bhutan, .ecuador, .turkmenistan").removeClass("active");  }
+        if ( ani28 < w && w < ani28j) { jQuery(".peru, .algeria, .dominicanrep, .india, .burma, .maldives, .paraguay, .mexico, .mongolia, .venezuela").addClass("active");}
+        else{ jQuery(".peru, .algeria, .dominicanrep, .india, .burma, .maldives, .paraguay, .mexico, .mongolia, .venezuela").removeClass("active");  }
+        if ( ani28j < w && w < ani29) { jQuery(".malaysia, .uzbekistan, .fiji, .libya").addClass("active");}
+        else{ jQuery(".malaysia, .uzbekistan, .fiji, .libya").removeClass("active");  }
+        if ( ani29 < w && w < ani29j) { jQuery(".guam, .kosovo, .kuwait, .morocco").addClass("active");}
+        else{ jQuery(".guam, .kosovo, .kuwait, .morocco").removeClass("active");  }
+        if ( ani29j < w && w < ani30) { jQuery(".suriname, .israel").addClass("active");}
+        else{ jQuery(".suriname, .israel").removeClass("active");  }
+        if ( ani30 < w && w < ani30j) { jQuery(".colombia, .brunei, .indonesia, .iran, .uae, .world").addClass("active");}
+        else{ jQuery(".colombia, .brunei, .indonesia, .iran, .uae, .world").removeClass("active");  }
+        if ( ani30j < w && w < ani31) { jQuery(".lebanon, .vietnam, .kazakhstan, .turkey").addClass("active");}
+        else{ jQuery(".lebanon, .vietnam, .kazakhstan, .turkey").removeClass("active");  }
+        if ( ani31 < w && w < ani31j) { jQuery(".costarica").addClass("active");}
+        else{ jQuery(".costarica").removeClass("active");  }
+        if ( ani31j < w && w < ani32) { jQuery(".grenada, .tunisia, .argentina, .antiguaandbarbuda, .frenchpolynesia").addClass("active");}
+        else{ jQuery(".grenada, .tunisia, .argentina, .antiguaandbarbuda, .frenchpolynesia").removeClass("active");  }
+        if ( ani32 < w && w < ani32j) { jQuery(".thebahamas, .newcaledonia, .wallisandfutura, .bahrain").addClass("active");}
+        else{ jQuery(".thebahamas, .newcaledonia, .wallisandfutura, .bahrain").removeClass("active");  }
+        if ( ani32j < w && w < ani33) { jQuery(".saintmartin, .brazil, .srilanka, .albania").addClass("active");}
+        else{ jQuery(".saintmartin, .brazil, .srilanka, .albania").removeClass("active");  }
+        if ( ani33 < w && w < ani33j) { jQuery(".montserrat, .qatar, .turkscaiacos, .palau").addClass("active");}
+        else{ jQuery(".montserrat, .qatar, .turkscaiacos, .palau").removeClass("active");  }
+        if ( ani33j < w && w < ani34) { jQuery(".dominica, .northernmarian, .stvincent, .greenland").addClass("active");}
+        else{ jQuery(".dominica, .northernmarian, .stvincent, .greenland").removeClass("active");  }
+        if ( ani34 < w && w < ani34j) { jQuery(".northkorea, .chile").addClass("active");}
+        else{ jQuery(".northkorea, .chile").removeClass("active");  }
+        if ( ani34j < w && w < ani35) { jQuery(".singapore, .gibraltar, .anguilla, .saintlucia").addClass("active");}
+        else{ jQuery(".singapore, .gibraltar, .anguilla, .saintlucia").removeClass("active");  }
+        if ( ani35 < w && w < ani35j) { jQuery(".kittsandnevis, .uruguay, .armenia, .mauritius, .seychelles").addClass("active");}
+        else{ jQuery(".kittsandnevis, .uruguay, .armenia, .mauritius, .seychelles").removeClass("active");  }
+        if ( ani36 < w && w < ani36j) { jQuery(".trinidadandtobago, .curacao").addClass("active");}
+        else{ jQuery(".trinidadandtobago, .curacao").removeClass("active");  }
+        if ( ani36j < w && w < ani37) { jQuery(".britishvirginislands, .cookislands, .iceland, .moldova, .cyprus, .ireland").addClass("active");}
+        else{ jQuery(".britishvirginislands, .cookislands, .iceland, .moldova, .cyprus, .ireland").removeClass("active");  }
+        if ( ani37 < w && w < ani37j) { jQuery(".china").addClass("active");}
+        else{ jQuery(".china").removeClass("active");  }
+        if ( ani37j < w && w < ani38) { jQuery(".faroeislands, .thailand, .newzealand, .northmacedonia").addClass("active");}
+        else{ jQuery(".faroeislands, .thailand, .newzealand, .northmacedonia").removeClass("active");  }
+        if ( ani38 < w && w < ani38j) { jQuery(".jersey, .georgia, .unitedstates").addClass("active");}
+        else{ jQuery(".jersey, .georgia, .unitedstates").removeClass("active");  }
+        if ( ani38j < w && w < ani39) { jQuery(".barbados, .australia").addClass("active");}
+        else{ jQuery(".barbados, .australia").removeClass("active");  }
+        if ( ani39 < w && w < ani39j) { jQuery(".norway, .aruba, .luxembourg, .macau").addClass("active");}
+        else{ jQuery(".norway, .aruba, .luxembourg, .macau").removeClass("active");  }
+        if ( ani39j < w && w < ani40) { jQuery(".russia").addClass("active");}
+        else{ jQuery(".russia").removeClass("active");  }
+        if ( ani40 < w && w < ani40j) { jQuery(".belarus, .caymanislands").addClass("active");}
+        else{ jQuery(".belarus, .caymanislands").removeClass("active");  }
+        if ( ani40j < w && w < ani41) { jQuery(".slovakia, .unitedkingdom, .ukraine, .montenegro, .poland, .taiwan").addClass("active");}
+        else{ jQuery(".slovakia, .unitedkingdom, .ukraine, .montenegro, .poland, .taiwan").removeClass("active");  }
+        if ( ani41 < w && w < ani41j) { jQuery(".sintmaarten, .virginislands, .romania, .sweden, .belgium, .france").addClass("active");}
+        else{ jQuery(".sintmaarten, .virginislands, .romania, .sweden, .belgium, .france").removeClass("active");  }
+        if ( ani41j < w && w < ani42) { jQuery(".cuba, .puertorico, .malta, .sainthelena").addClass("active");}
+        else{ jQuery(".cuba, .puertorico, .malta, .sainthelena").removeClass("active");  }
+        if ( ani42 < w && w < ani42j) { jQuery(".bosnia, .czech, .canada, .denmark, .portugal, .hungary, .switzerland").addClass("active");}
+        else{ jQuery(".bosnia, .czech, .canada, .denmark, .portugal, .hungary, .switzerland").removeClass("active");  }
+        if ( ani42j < w && w < ani43) { jQuery(".finland, .netherlands, .serbia, .bulgaria, .estonia, .spain, .eu").addClass("active");}
+        else{ jQuery(".finland, .netherlands, .serbia, .bulgaria, .estonia, .spain, .eu").removeClass("active");  }
+        if ( ani43 < w && w < ani43j) { jQuery(".croatia, .liechtenstein, .bermuda").addClass("active");}
+        else{ jQuery(".croatia, .liechtenstein, .bermuda").removeClass("active");  }
+        if ( ani43j < w && w < ani44) { jQuery(".latvia, .lithuania, .guernsey").addClass("active");}
+        else{ jQuery(".latvia, .lithuania, .guernsey").removeClass("active");  }
+        if ( ani44 < w && w < ani44j) { jQuery(".austria, .saintbarthelemy, .isleofman, .andorra, .hongkong, .sanmarino").addClass("active");}
+        else{ jQuery(".austria, .saintbarthelemy, .isleofman, .andorra, .hongkong, .sanmarino").removeClass("active");  }
+        if ( ani44j < w && w < ani45) { jQuery(".greece, .slovenia").addClass("active");}
+        else{ jQuery(".greece, .slovenia").removeClass("active");  }
+        if ( ani45j < w && w < ani46) { jQuery(".italy").addClass("active");}
+        else{ jQuery(".italy").removeClass("active");  }
+        if ( ani46j < w && w < ani47) { jQuery(".saintpierre").addClass("active");}
+        else{ jQuery(".saintpierre").removeClass("active");  }
+        if ( ani47 < w && w < ani47j) { jQuery(".japan").addClass("active");}
+        else{ jQuery(".japan").removeClass("active");  }
+        if ( ani53 < w && w < ani53j) { jQuery(".monaco").addClass("active");}
+        else{ jQuery(".monaco").removeClass("active");  }
+      }
+
+}
+jQuery(window).resize(checkResize);
+let timer = setInterval(checkResize, 10);
+
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-9344515-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+  </script>
+<script>jQuery( function() {
+   jQuery( "#dialog-confirm" ).dialog({
+     resizable: false,
+     height: "auto",
+     width: 350,
+     modal: false,
+     buttons: {
+       "I'm OK with it": function() {
+         jQuery( this ).dialog( "close" );
+          gtag('config', 'UA-9344515-2');
+       },
+       "Opt out tracking": function() {
+         jQuery( this ).dialog( "close" );
+       }
+     }
+   });
+ } );</script>
+
+
+
+</head>
+
+<body>
+  <div id="dialog-confirm" title="GDPR Consent">
+  <p><span class="ui-icon ui-icon-alert" style="float:left; margin:12px 12px 20px 0;"></span>This page uses the Google Analytics Cookie for website statistics.</p>
+</div>
+<div id="header">
+  <div id="titlu">
+    <h1>Global median age</h1>
+    <h2>Data visualization by <a href="http://dynamictexture.eu" target="blank">Alexandra Mureșan</a></h2>
+  </div>
+  <div id="indication">
+    <p><strong>HOW TO EXPLORE:<br/> Grab the red line and move it slow to the left or to the right</strong></p>
+  </div>
+  <div id="source"><p>Data sorce: <a href="https://en.wikipedia.org/wiki/List_of_countries_by_median_age" target="blank">Wikipedia</a></p></div>
+</div>
+<div id="population">
+  <div id="half1" class="half">
+    <div class="om1 om"></div>
+    <div class="om2 om"><div class="country sintmaarten"><img src="flags/Sint Maarten.png" /> <h3>Sint Maarten <br/><span>41 years</span></h3></div></div>
+    <div class="om3 om"><div class="country belarus"><img src="flags/Belarus.png" /> <h3>Belarus <br/><span>40 years</span></h3></div>
+                        <div class="country finland"><img src="flags/Finland.png" /> <h3>Finland <br/><span>42.5 years</span></h3></div>
+                        <div class="country saintpierre"><img src="flags/Saint_Pierre.png" /> <h3>Saint Pierre and Miquelon <br/><span>46.5 years</span></h3></div></div>
+    <div class="om4 om"><div class="country slovakia"><img src="flags/Slovakia.png" /> <h3>Slovakia <br/><span>40.5 years</span></h3></div>
+                        <div class="country greece"><img src="flags/Greece.png" /> <h3>Greece <br/><span>44.5 years</span></h3></div></div>
+    <div class="om5 om"><div class="country caymanislands"><img src="flags/Cayman_Islands.png" /> <h3>Cayman Islands <br/><span>40 years</span></h3></div>
+                        <div class="country austria"><img src="flags/Austria.png" /> <h3>Austria <br/><span>44 years</span></h3></div>
+                        </div>
+    <div class="om6 om"><div class="country virginislands"><img src="flags/US_Virgin_Islands.png" /> <h3>Virgin Islands <br/><span>41 years</span></h3></div></div>
+    <div class="om7 om"><div class="country jersey"><img src="flags/Jersey.png" /> <h3>Jersey <br/><span>38 years</span></h3></div>
+                        <div class="country slovenia"><img src="flags/Slovenia.png" /> <h3>Slovenia <br/><span>44.5 years</span></h3></div></div>
+    <div class="om8 om"><div class="country unitedkingdom"><img src="flags/United_Kingdom.png" /> <h3>United Kingdom <br/><span>40.5 years</span></h3></div>
+                        <div class="country cuba"><img src="flags/Cuba.png" /> <h3>Cuba <br/><span>41.5 years</span></h3></div>
+                      <div class="country italy"><img src="flags/Italy.png" /> <h3>Italy <br/><span>45.5 years</span></h3></div></div>
+    <div class="om9 om"><div class="country puertorico"><img src="flags/Puerto_Rico.png" /> <h3>Puerto Rico <br/><span>41.5 years</span></h3></div></div>
+    <div class="om10 om"><div class="country croatia"><img src="flags/Croatia.png" /> <h3>Croatia <br/><span>43 years</span></h3></div></div>
+    <div class="om11 om"></div>
+    <div class="om12 om"><div class="country bosnia"><img src="flags/Bosnia.png" /> <h3>Bosnia and Herzegovina <br/><span>42.1 years</span></h3></div></div>
+    <div class="om13 om"><div class="country barbados"><img src="flags/Barbados.png" /> <h3>Barbados <br/><span>38.6 years</span></h3></div>
+                        <div class="country monaco"><img src="flags/Monaco.png" /> <h3>Monaco <br/><span>53.1 years</span></h3></div></div>
+    <div class="om14 om"><div class="country faroeislands"><img src="flags/Faroe_Islands.png" /> <h3>Faroe Islands <br/><span>37.6 years</span></h3></div>
+                        <div class="country czech"><img src="flags/Czech_Republic.png" /> <h3>Czech Republic <br/><span>42.1 years</span></h3></div></div>
+    <div class="om15 om"><div class="country russia"><img src="flags/Russian_Federation.png" /> <h3>Russia <br/><span>39.6 years</span></h3></div>
+                        <div class="country netherlands"><img src="flags/Netherlands.png" /> <h3>Netherlands <br/><span>42.6 years</span></h3></div></div>
+    <div class="om16 om"><div class="country georgia"><img src="flags/Georgia.png" /> <h3>Georgia <br/><span>38.1 years</span></h3></div>
+                        </div>
+    <div class="om17 om"><div class="country ukraine"><img src="flags/Ukraine.png" /> <h3>Ukraine <br/><span>40.6 years</span></h3></div>
+                        <div class="country serbia"><img src="flags/Serbia.png" /> <h3>Serbia <br/><span>42.6 years</span></h3></div></div>
+    <div class="om18 om"><div class="country unitedstates"><img src="flags/United_States_of_America.png" /> <h3>United States of America <br/><span>38.1 years</span></h3></div>
+                        <div class="country latvia"><img src="flags/Latvia.png" /> <h3>Latvia <br/><span>43.6 years</span></h3></div></div>
+    <div class="om19 om"><div class="country romania"><img src="flags/Romania.png" /> <h3>Romania <br/><span>41.1 years</span></h3></div>
+                        <div class="country saintbarthelemy"><img src="flags/Saint Barthelemy.png" /> <h3>Saint Barthelemy <br/><span>44.1 years</span></h3></div></div>
+    <div class="om20 om"></div>
+    <div class="om21 om"></div>
+    <div class="om22 om"><div class="country norway"><img src="flags/Norway.png" /> <h3>Norway <br/><span>39.2 years</span></h3></div>
+                        <div class="country liechtenstein"><img src="flags/Liechtenstein.png" /> <h3>Liechtensteinch <br/><span>43.2 years</span></h3></div></div>
+    <div class="om23 om"><div class="country montenegro"><img src="flags/Montenegro.png" /> <h3>Montenegro <br/><span>40.7 years</span></h3></div>
+                        <div class="country lithuania"><img src="flags/Lithuania.png" /> <h3>Lithuania <br/><span>43.7 years</span></h3></div></div>
+    <div class="om24 om"><div class="country sweden"><img src="flags/Sweden.png" /> <h3>Sweden <br/><span>41.2 years</span></h3></div>
+                        <div class="country isleofman"><img src="flags/Isle of Man.png" /> <h3>Isle of Man <br/><span>44.2 years</span></h3></div></div>
+    <div class="om25 om"><div class="country australia"><img src="flags/Australia.png" /> <h3>Australia <br/><span>38.7 years</span></h3></div>
+                        <div class="country bulgaria"><img src="flags/Bulgaria.png" /> <h3>Bulgaria <br/><span>42.7 years</span></h3></div></div>
+    <div class="om26 om"><div class="country poland"><img src="flags/Poland.png" /> <h3>Poland <br/><span>40.7 years</span></h3></div>
+                        <div class="country estonia"><img src="flags/Estonia.png" /> <h3>Estonia <br/><span>42.7 years</span></h3></div></div>
+    <div class="om27 om"><div class="country thailand"><img src="flags/Thailand.png" /> <h3>Thailand <br/><span>37.7 years</span></h3></div>
+                        <div class="country spain"><img src="flags/Spain.png" /> <h3>Spain <br/><span>42.7 years</span></h3></div></div>
+    <div class="om28 om"><div class="country taiwan"><img src="flags/Taiwan.png" /> <h3>Taiwan <br/><span>40.7 years</span></h3></div>
+                        <div class="country canada"><img src="flags/Canada.png" /> <h3>Canada <br/><span>42.2 years</span></h3></div></div>
+    <div class="om29 om"><div class="country denmark"><img src="flags/Denmark.png" /> <h3>Denmark <br/><span>42.2 years</span></h3></div></div>
+    <div class="om30 om"><div class="country portugal"><img src="flags/Portugal.png" /> <h3>Portugal <br/><span>42.2 years</span></h3></div></div>
+    <div class="om31 om"></div>
+    <div class="om32 om"><div class="country hungary"><img src="flags/Hungary.png" /> <h3>Hungary <br/><span>42.3 years</span></h3></div></div>
+    <div class="om33 om"><div class="country aruba"><img src="flags/Aruba.png" /> <h3>Aruba <br/><span>39.3 years</span></h3></div></div>
+    <div class="om34 om"><div class="country malta"><img src="flags/Malta.png" /> <h3>Malta <br/><span>41.8 years</span></h3></div></div>
+    <div class="om35 om"><div class="country luxembourg"><img src="flags/Luxembourg.png" /> <h3>Luxembourg <br/><span>39.3 years</span></h3></div></div>
+    <div class="om36 om"><div class="country japan"><img src="flags/Japan.png" /> <h3>Japan <br/><span>47.3 years</span></h3></div></div>
+    <div class="om37 om"><div class="country macau"><img src="flags/Macao.png" /> <h3>Macau <br/><span>39.3 years</span></h3></div></div>
+    <div class="om38 om"><div class="country guernsey"><img src="flags/Guernsey.png" /> <h3>Guernsey <br/><span>43.8 years</span></h3></div></div>
+    <div class="om39 om"><div class="country andorra"><img src="flags/Andorra.png" /> <h3>Andorra <br/><span>44.3 years</span></h3></div></div>
+    <div class="om40 om"></div>
+    <div class="om41 om"></div>
+    <div class="om42 om"><div class="country eu"><img src="flags/EU.png" /> <h3>EU <br/><span>42.9 years</span></h3></div></div>
+    <div class="om43 om"><div class="country belgium"><img src="flags/Belgium.png" /> <h3>Belgium <br/><span>41.4 years</span></h3></div></div>
+    <div class="om44 om"><div class="country newzealand"><img src="flags/New_Zealand.png" /> <h3>New Zealand <br/><span>37.9 years</span></h3></div>
+                        <div class="country hongkong"><img src="flags/Hong_Kong.png" /> <h3>Hong Kong <br/><span>44.4 years</span></h3></div></div>
+    <div class="om45 om"><div class="country france"><img src="flags/France.png" /> <h3>France <br/><span>41.4 years</span></h3></div></div>
+    <div class="om46 om"><div class="country northmacedonia"><img src="flags/Macedonia.png" /> <h3>North Macedonia <br/><span>37.9 years</span></h3></div>
+                        <div class="country sanmarino"><img src="flags/San_Marino.png" /> <h3>San Marino <br/><span>44.4 years</span></h3></div></div>
+    <div class="om47 om"><div class="country sainthelena"><img src="flags/Saint Helena.png" /> <h3>Saint Helena, Ascension and Tristan da Chuna <br/><span>41.9 years</span></h3></div></div>
+    <div class="om48 om"><div class="country switzerland"><img src="flags/Switzerland.png" /> <h3>Switzerland <br/><span>42.4 years</span></h3></div></div>
+    <div class="om49 om"><div class="country bermuda"><img src="flags/Bermuda.png" /> <h3>Bermuda <br/><span>43.4 years</span></h3></div></div>
+    <div class="om50 om"></div>
+  </div>
+  <div id="half2" class="half">
+    <div class="om1 om"></div>
+    <div class="om2 om"><div class="country thegambia"><img src="flags/Gambia.png" /> <h3>The Gambia <br/><span>21 years</span></h3></div>
+                        <div class="country americansamoa"><img src="flags/American Samoa.png" /> <h3>American Samoa <br/><span>25.5 years</span></h3></div>
+                        <div class="country colombia"><img src="flags/Colombia.png" /> <h3>Colombia <br/><span>30 years</span></h3></div>
+                        <div class="country kittsandnevis"><img src="flags/Saint_Kitts_and_Nevis.png" /> <h3>Saint Kitts and Nevis <br/><span>35 years</span></h3></div></div>
+    <div class="om3 om"><div class="country rwanda"><img src="flags/Rwanda.png" /> <h3>Rwanda <br/><span>19 years</span></h3></div>
+                        <div class="country haiti"><img src="flags/Haiti.png" /> <h3>Haiti <br/><span>23 years</span></h3></div>
+                        <div class="country malaysia"><img src="flags/Malaysia.png" /> <h3>Malaysia <br/><span>28.5 years</span></h3></div>
+                        <div class="country saintmartin"><img src="flags/Saint Martin.png" /> <h3>Saint Martin <br/><span>32.5 years</span></h3></div>
+                        <div class="country britishvirginislands"><img src="flags/British_Virgin_Islands.png" /> <h3>British Virgin Islands <br/><span>36.5 years</span></h3></div></div>
+    <div class="om4 om"><div class="country burundi"><img src="flags/Burundi.png" /> <h3>Burundi <br/><span>17 years</span></h3></div>
+                        <div class="country vanuatu"><img src="flags/Vanuatu.png" /> <h3>Vanuatu <br/><span>22 years</span></h3></div>
+                        <div class="country honduras"><img src="flags/Honduras.png" /> <h3>Honduras <br/><span>23 years</span></h3></div>
+                        <div class="country kyrgyzstan"><img src="flags/Kyrgyzstan.png" /> <h3>Kyrgyzstan <br/><span>26.5 years</span></h3></div>
+                        <div class="country grenada"><img src="flags/Grenada.png" /> <h3>Grenada <br/><span>31.5 years</span></h3></div>
+                        <div class="country trinidadandtobago"><img src="flags/Trinidad_and_Tobago.png" /> <h3>Trinindad and Tobago <br/><span>36 years</span></h3></div></div>
+    <div class="om5 om"><div class="country yemen"><img src="flags/Yemen.png" /> <h3>Yemen <br/><span>19.5 years</span></h3></div>
+                        <div class="country laos"><img src="flags/Laos.png" /> <h3>Laos <br/><span>23 years</span></h3></div>
+                        <div class="country jamaica"><img src="flags/Jamaica.png" /> <h3>Jamaica <br/><span>26 years</span></h3></div>
+                        <div class="country thebahamas"><img src="flags/Bahamas.png" /> <h3>The Bahamas <br/><span>32 years</span></h3></div>
+                        <div class="country cookislands"><img src="flags/Cook_Islands.png" /> <h3>Cook Islands <br/><span>36.5 years</span></h3></div></div>
+    <div class="om6 om"><div class="country cameroon"><img src="flags/Cameroon.png" /> <h3>Cameroon <br/><span>18.5 years</span></h3></div>
+                        <div class="country iraq"><img src="flags/Iraq.png" /> <h3>Iraq <br/><span>20 years</span></h3></div>
+                        <div class="country tonga"><img src="flags/Tonga.png" /> <h3>Tonga <br/><span>23 years</span></h3></div>
+                        <div class="country guam"><img src="flags/Guam.png" /> <h3>Guam <br/><span>29 years</span></h3></div>
+                        <div class="country northkorea"><img src="flags/North_Korea.png" /> <h3>North Korea <br/><span>34 years</span></h3></div></div>
+    <div class="om7 om"><div class="country malawi"><img src="flags/Malawi.png" /> <h3>Malawi <br/><span>16.5 years</span></h3></div>
+                        <div class="country zimbabwe"><img src="flags/Zimbabwe.png" /> <h3>Zimbabwe <br/><span>20 years</span></h3></div>
+                        <div class="country botswana"><img src="flags/Botswana.png" /> <h3>Botswana <br/><span>24.5 years</span></h3></div>
+                        <div class="country peru"><img src="flags/Peru.png" /> <h3>Peru <br/><span>28 years</span></h3></div>
+                        <div class="country dominica"><img src="flags/Dominica.png" /> <h3>Dominica <br/><span>33.5 years</span></h3></div>
+                        <div class="country iceland"><img src="flags/Iceland.png" /> <h3>Iceland <br/><span>36.5 years</span></h3></div></div>
+    <div class="om8 om"><div class="country sierraleone"><img src="flags/Sierra Leone.png" /> <h3>Sierra Leone <br/><span>19 years</span></h3></div>
+                        <div class="country jordan"><img src="flags/Jordan.png" /> <h3>Jordan <br/><span>22.5 years</span></h3></div>
+                        <div class="country tajikistan"><img src="flags/Tajikistan.png" /> <h3>Tajikistan <br/><span>24.5 years</span></h3></div>
+                        <div class="country lebanon"><img src="flags/Lebanon.png" /> <h3>Lebanon <br/><span>30.5 years</span></h3></div>
+                        <div class="country uruguay"><img src="flags/Uruguay.png" /> <h3>Uruguay <br/><span>35 years</span></h3></div></div>
+    <div class="om9 om"><div class="country mauritania"><img src="flags/Mauritania.png" /> <h3>Mauritania <br/><span>20.5 years</span></h3></div>
+                        <div class="country solomonislands"><img src="flags/Solomon Islands.png" /> <h3>Solomon Islands <br/><span>22.5 years</span></h3></div>
+                        <div class="country saudiarabia"><img src="flags/Saudi_Arabia.png" /> <h3>Saudi Arabia <br/><span>27.5 years</span></h3></div>
+                        <div class="country newcaledonia"><img src="flags/New Caledonia.png" /> <h3>New Caledonia <br/><span>32 years</span></h3></div></div>
+    <div class="om10 om"><div class="country philippines"><img src="flags/Philippines.png" /> <h3>Philippines <br/><span>23.5 years</span></h3></div>
+                        <div class="country vietnam"><img src="flags/Vietnam.png" /> <h3>Vietnam <br/><span>30.5 years</span></h3></div>
+                      </div>
+    <div class="om11 om"><div class="country papuanewguinea"><img src="flags/Papua New Guinea.png" /> <h3>Papua New Guinea <br/><span>23.1 years</span></h3></div>
+                        <div class="country elsalvador"><img src="flags/El Salvador.png" /> <h3>El Salvador <br/><span>27.1 years</span></h3></div>
+                        <div class="country singapore"><img src="flags/Singapore.png" /> <h3>Singapore <br/><span>34.6 years</span></h3></div></div>
+    <div class="om12 om"><div class="country guineabissau"><img src="flags/Guinea_Bissau.png" /> <h3>Guinea-Bissau <br/><span>20.1 years</span></h3></div>
+                        <div class="country southafrica"><img src="flags/South_Africa.png" /> <h3>South Africa <br/><span>27.1 years</span></h3></div>
+                        <div class="country kazakhstan"><img src="flags/Kazakhstan.png" /> <h3>Kazakhstan <br/><span>30.6 years</span></h3></div></div>
+    <div class="om13 om"><div class="country demrepcongo"><img src="flags/Democratic Republic of the Congo.png" /> <h3>Democratic Republic of the Congo <br/><span>18.6 years</span></h3></div>
+                        <div class="country kiribati"><img src="flags/Kiribati.png" /> <h3>Kiribati <br/><span>24.6 years</span></h3></div>
+                        <div class="country uzbekistan"><img src="flags/Uzbekistan.png" /> <h3>Uzbekistan <br/><span>28.6 years</span></h3></div>
+                        <div class="country curacao"><img src="flags/Curacao.png" /> <h3>Curacao <br/><span>36.1 years</span></h3></div></div>
+    <div class="om14 om"><div class="country somalia"><img src="flags/Somalia.png" /> <h3>Somalia <br/><span>18.1 years</span></h3></div>
+                        <div class="country nepal"><img src="flags/Nepal.png" /> <h3>Nepal <br/><span>24.1 years</span></h3></div>
+                        <div class="country algeria"><img src="flags/Algeria.png" /> <h3>Algeria <br/><span>28.1 years</span></h3></div>
+                        <div class="country northernmarian"><img src="flags/Northern Marian Islands.png" /> <h3>Northern Marian Islands <br/><span>33.6 years</span></h3></div>
+                      </div>
+    <div class="om15 om"><div class="country ghana"><img src="flags/Ghana.png" /> <h3>Ghana <br/><span>21.1 years</span></h3></div>
+                        <div class="country bhutan"><img src="flags/Bhutan.png" /> <h3>Bhutan <br/><span>27.6 years</span></h3></div>
+                        <div class="country armenia"><img src="flags/Armenia.png" /> <h3>Armenia <br/><span>35.1 years</span></h3></div></div>
+    <div class="om16 om"><div class="country palestinewestbank"><img src="flags/Palestine.png" /> <h3>Palestine (West Bank) <br/><span>21.1 years</span></h3></div>
+                        <div class="country micronesia"><img src="flags/Micronesia.png" /> <h3>Federated States of Micronesia <br/><span>25.1 years</span></h3></div>
+                        <div class="country dominicanrep"><img src="flags/Dominican_Republic.png" /> <h3>Dominican Republic <br/><span>28.1 years</span></h3></div>
+                        <div class="country tunisia"><img src="flags/Tunisia.png" /> <h3>Tunisia <br/><span>31.6 years</span></h3></div></div>
+    <div class="om17 om"><div class="country guatemala"><img src="flags/Guatemala.png" /> <h3>Guatemala <br/><span>22.1 years</span></h3></div>
+                        <div class="country kosovo"><img src="flags/Kosovo.png" /> <h3>Kosovo <br/><span>29.1 years</span></h3></div>
+                        <div class="country stvincent"><img src="flags/Saint_Vicent_and_the_Grenadines.png" /> <h3>Saint Vincent and the Grenadines <br/><span>33.6 years</span></h3></div>
+                      </div>
+    <div class="om18 om"><div class="country gabon"><img src="flags/Gabon.png" /> <h3>Gabon <br/><span>18.6 years</span></h3></div>
+                        <div class="country oman"><img src="flags/Oman.png" /> <h3>Oman <br/><span>25.6 years</span></h3></div>
+                        <div class="country india"><img src="flags/India.png" /> <h3>India <br/><span>28.1 years</span></h3></div>
+                        </div>
+    <div class="om19 om"><div class="country westernsahara"><img src="flags/Western Sahara.png" /> <h3>Western Sahara <br/><span>21.1 years</span></h3></div>
+                        <div class="country brazil"><img src="flags/Brazil.png" /> <h3>Brazil <br/><span>32.6 years</span></h3></div></div>
+    <div class="om20 om"></div>
+    <div class="om21 om"></div>
+    <div class="om22 om"><div class="country benin"><img src="flags/Benin.png" /> <h3>Benin <br/><span>18.2 years</span></h3></div>
+                        <div class="country centralafricanrepublic"><img src="flags/Central African Republic.png" /> <h3>Central African Republic <br/><span>19.7 years</span></h3></div>
+                        <div class="country guyana"><img src="flags/Guyana.png" /> <h3>Guyana <br/><span>26.2 years</span></h3></div>
+                        <div class="country montserrat"><img src="flags/Montserrat.png" /> <h3>Montserrat <br/><span>33.2 years</span></h3></div>
+                        <div class="country moldova"><img src="flags/Moldova.png" /> <h3>Moldova <br/><span>36.7 years</span></h3></div></div>
+    <div class="om23 om"><div class="country belize"><img src="flags/Belize.png" /> <h3>Belize <br/><span>22.7 years</span></h3></div>
+                        <div class="country burma"><img src="flags/Burma.png" /> <h3>Burma <br/><span>28.2 years</span></h3></div></div>
+    <div class="om24 om"><div class="country repcongo"><img src="flags/Republic_of_the_Congo.png" /> <h3>Republic of the Congo <br/><span>19.7 years</span></h3></div>
+                        <div class="country ecuador"><img src="flags/Ecuador.png" /> <h3>Ecuador <br/><span>27.7 years</span></h3></div>
+                        <div class="country qatar"><img src="flags/Qatar.png" /> <h3>Qatar <br/><span>33.2 years</span></h3></div></div>
+    <div class="om25 om"><div class="country mozambique"><img src="flags/Mozambique.png" /> <h3>Mozambique <br/><span>17.2 years</span></h3></div>
+                        <div class="country eswatini"><img src="flags/Eswatini.png" /> <h3>Eswatini <br/><span>21.7 years</span></h3></div>
+                        <div class="country maldives"><img src="flags/Maldives.png" /> <h3>Maldives <br/><span>28.2 years</span></h3></div></div>
+    <div class="om26 om"><div class="country eritrea"><img src="flags/Eritrea.png" /> <h3>Eritrea <br/><span>19.7 years</span></h3></div>
+                        <div class="country bangladesh"><img src="flags/Bangladesh.png" /> <h3>Bangladesh <br/><span>26.7 years</span></h3></div>
+                        <div class="country wallisandfutura"><img src="flags/Wallis_and_Futuna.png" /> <h3>Wallis and Futura <br/><span>32.2 years</span></h3></div></div>
+    <div class="om27 om"><div class="country kenya"><img src="flags/Kenya.png" /> <h3>Kenya <br/><span>19.7 years</span></h3></div>
+                        <div class="country lesotho"><img src="flags/Lesotho.png" /> <h3>Lesotho <br/><span>24.2 years</span></h3></div>
+                        <div class="country paraguay"><img src="flags/Paraguay.png" /> <h3>Paraguay <br/><span>28.2 years</span></h3></div>
+                        <div class="country gibraltar"><img src="flags/Gibraltar.png" /> <h3>Gibraltar <br/><span>34.7 years</span></h3></div></div>
+    <div class="om28 om"><div class="country tanzania"><img src="flags/Tanzania.png" /> <h3>Tanzania <br/><span>17.7 years</span></h3></div>
+                        <div class="country madagascar"><img src="flags/Madagascar.png" /> <h3>Madagascar <br/><span>19.7 years</span></h3></div>
+                        <div class="country brunei"><img src="flags/Brunei.png" /> <h3>Brunei <br/><span>30.2 years</span></h3></div></div>
+    <div class="om29 om"><div class="country namibia"><img src="flags/Namibia.png" /> <h3>Namibia <br/><span>21.2 years</span></h3></div>
+                        <div class="country nicaragua"><img src="flags/Nicaragua.png" /> <h3>Nicaragua <br/><span>25.7 years</span></h3></div>
+                        <div class="country indonesia"><img src="flags/Indonesia.png" /> <h3>Indonesia <br/><span>30.2 years</span></h3></div></div>
+    <div class="om30 om"><div class="country tuvalu"><img src="flags/Tuvalu.png" /> <h3>Tuvalu <br/><span>25.7 years</span></h3></div></div>
+    <div class="om31 om"><div class="country cambodia"><img src="flags/Cambodia.png" /> <h3>Cambodia <br/><span>25.3 years</span></h3></div>
+                        <div class="country anguilla"><img src="flags/Anguilla.png" /> <h3>Anguilla <br/><span>34.8 years</span></h3></div></div>
+    <div class="om32 om"><div class="country equatorialguinea"><img src="flags/Equatorial Guinea.png" /> <h3>Equatorial Guinea <br/><span>19.8 years</span></h3></div>
+                        <div class="country iran"><img src="flags/Iran.png" /> <h3>Iran <br/><span>30.3 years</span></h3></div>
+                        <div class="country saintlucia"><img src="flags/Saint_Lucia.png" /> <h3>Saint Lucia <br/><span>34.8 years</span></h3></div></div>
+    <div class="om33 om"><div class="country zambia"><img src="flags/Zambia.png" /> <h3>Zambia <br/><span>16.8 years</span></h3></div>
+                        <div class="country bolivia"><img src="flags/Bolivia.png" /> <h3>Bolivia <br/><span>24.3 years</span></h3></div>
+                        <div class="country kuwait"><img src="flags/Kuwait.png" /> <h3>Kuwait <br/><span>29.3 years</span></h3></div>
+                        <div class="country srilanka"><img src="flags/Sri Lanka.png" /> <h3>Sri Lanka <br/><span>32.8 years</span></h3></div></div>
+    <div class="om34 om"><div class="country chad"><img src="flags/Chad.png" /> <h3>Chad <br/><span>17.8 years</span></h3></div>
+                        <div class="country togo"><img src="flags/Togo.png" /> <h3>Togo <br/><span>19.8 years</span></h3></div>
+                        <div class="country mexico"><img src="flags/Mexico.png" /> <h3>Mexico <br/><span>28.3 years</span></h3></div>
+                        <div class="country uae"><img src="flags/UAE.png" /> <h3>United Arab Emirates <br/><span>30.3 years</span></h3></div>
+                        <div class="country mauritius"><img src="flags/Mauritius.png" /> <h3>Mauritius <br/><span>35.3 years</span></h3></div></div>
+    <div class="om35 om"><div class="country mali"><img src="flags/Mali.png" /> <h3>Mali <br/><span>15.8 years</span></h3></div>
+                        <div class="country senegal"><img src="flags/Senegal.png" /> <h3>Senegal <br/><span>18.8 years</span></h3></div>
+                        <div class="country mongolia"><img src="flags/Mongolia.png" /> <h3>Mongolia <br/><span>28.3 years</span></h3></div>
+                        <div class="country bahrain"><img src="flags/Bahrain.png" /> <h3>Bahrain <br/><span>32.3 years</span></h3></div></div>
+    <div class="om36 om"><div class="country uganda"><img src="flags/Uganda.png" /> <h3>Uganda <br/><span>15.8 years</span></h3></div>
+                        <div class="country pakistan"><img src="flags/Pakistan.png" /> <h3>Pakistan <br/><span>23.8 years</span></h3></div>
+                        <div class="country venezuela"><img src="flags/Venezuela.png" /> <h3>Venezuela <br/><span>28.3 years</span></h3></div>
+                        <div class="country argentina"><img src="flags/Argentina.png" /> <h3>Argentina <br/><span>31.7 years</span></h3></div></div>
+    <div class="om37 om"><div class="country burkinafaso"><img src="flags/Burkina Faso.png" /> <h3>Burkina Faso <br/><span>17.3 years</span></h3></div>
+                        <div class="country syria"><img src="flags/Syria.png" /> <h3>Syria <br/><span>24.3 years</span></h3></div>
+                        <div class="country morocco"><img src="flags/Morocco.png" /> <h3>Morocco <br/><span>29.3 years</span></h3></div>
+                        <div class="country turkscaiacos"><img src="flags/Turks_and_Caicos_Islands.png" /> <h3>Turks and Caicos Islands <br/><span>33.3 years</span></h3></div></div>
+    <div class="om38 om"><div class="country southsudan"><img src="flags/South Sudan.png" /> <h3>South Sudan <br/><span>17.3 years</span></h3></div>
+                        <div class="country costarica"><img src="flags/Costa_Rica.png" /> <h3>Costa Rica <br/><span>31.3 years</span></h3></div>
+                        <div class="country cyprus"><img src="flags/Cyprus.png" /> <h3>Cyprus <br/><span>36.8 years</span></h3></div></div>
+    <div class="om39 om"><div class="country suriname"><img src="flags/Suriname.png" /> <h3>Suriname <br/><span>29.8 years</span></h3></div>
+                        <div class="country ireland"><img src="flags/Ireland.png" /> <h3>Ireland <br/><span>36.8 years</span></h3></div></div>
+    <div class="om40 om"></div>
+    <div class="om41 om"></div>
+    <div class="om42 om"><div class="country afghanistan"><img src="flags/Afghanistan.png" /> <h3>Afghanistan <br/><span>18.9 years</span></h3></div>
+                        <div class="country israel"><img src="flags/Israel.png" /> <h3>Israel <br/><span>29.9 years</span></h3></div>
+                        <div class="country seychelles"><img src="flags/Seychelles.png" /> <h3>Seychelles <br/><span>35.4 years</span></h3></div></div>
+    <div class="om43 om"><div class="country niger"><img src="flags/Niger.png" /> <h3>Niger <br/><span>15.4 years</span></h3></div>
+                        <div class="country azerbaijan"><img src="flags/Azerbaijan.png" /> <h3>Azerbaijan <br/><span>21.4 years</span></h3></div>
+                        <div class="country antiguaandbarbuda"><img src="flags/Antigua_and_Barbuda.png" /> <h3>Antigua and Barbuda <br/><span>31.9 years</span></h3></div></div>
+    <div class="om44 om"><div class="country easttimor"><img src="flags/East_Timor.png" /> <h3>East Timor <br/><span>18.9 years</span></h3></div>
+                        <div class="country turkmenistan"><img src="flags/Turkmenistan.png" /> <h3>Turkmenistan <br/><span>27.9 years</span></h3></div>
+                        <div class="country palau"><img src="flags/Palau.png" /> <h3>The Palau <br/><span>33.4 years</span></h3></div></div>
+    <div class="om45 om"><div class="country cotedivoire"><img src="flags/CotedIvoire.png" /> <h3>Cote d'Ivoire <br/><span>20.9 years</span></h3></div>
+                        <div class="country samoa"><img src="flags/Samoa.png" /> <h3>Samoa <br/><span>24.4 years</span></h3></div>
+                        <div class="country world"><img src="flags/World.png" /> <h3>World <br/><span>30.4 years</span></h3></div>
+                        <div class="country china"><img src="flags/China.png" /> <h3>China <br/><span>37.4 years</span></h3></div></div>
+    <div class="om46 om"><div class="country ethiopia"><img src="flags/Ethiopia.png" /> <h3>Ethiopia <br/><span>17.9 years</span></h3></div>
+                        <div class="country comoros"><img src="flags/Comoros.png" /> <h3>Comoros <br/><span>19.9 years</span></h3></div>
+                        <div class="country marshallislands"><img src="flags/Marshall_Islands.png" /> <h3>Marshall Islands <br/><span>22.9 years</span></h3></div>
+                        <div class="country fiji"><img src="flags/Fiji.png" /> <h3>Fiji <br/><span>28.9 years</span></h3></div>
+                        <div class="country greenland"><img src="flags/Greenland.png" /> <h3>Greenland <br/><span>33.9 years</span></h3></div></div>
+    <div class="om47 om"><div class="country nigeria"><img src="flags/Nigeria.png" /> <h3>Nigeria <br/><span>18.4 years</span></h3></div>
+                        <div class="country sudan"><img src="flags/Sudan.png" /> <h3>Sudan <br/><span>19.9 years</span></h3></div>
+                        <div class="country caboverde"><img src="flags/Cape Verde.png" /> <h3>Cabo Verde <br/><span>25.4 years</span></h3></div>
+                        <div class="country turkey"><img src="flags/Turkey.png" /> <h3>Turkey <br/><span>30.9 years</span></h3></div></div>
+    <div class="om48 om"><div class="country angola"><img src="flags/Angola.png" /> <h3>Angola <br/><span>15.9 years</span></h3></div>
+                        <div class="country saotome"><img src="flags/Sao Tome and Principe.png" /> <h3>Sao Tome and Principe <br/><span>18.4 years</span></h3></div>
+                        <div class="country djibouti"><img src="flags/Djibouti.png" /> <h3>Djibouti <br/><span>23.9 years</span></h3></div>
+                        <div class="country libya"><img src="flags/Libya.png" /> <h3>Libya <br/><span>28.9 years</span></h3></div>
+                        <div class="country albania"><img src="flags/Albania.png" /> <h3>Albania <br/><span>32.9 years</span></h3></div></div>
+    <div class="om49 om"><div class="country guinea"><img src="flags/Guinea.png" /> <h3>Guinea <br/><span>18.9 years</span></h3></div>
+                        <div class="country egypt"><img src="flags/Egypt.png" /> <h3>Egypt <br/><span>23.9 years</span></h3></div>
+                        <div class="country frenchpolynesia"><img src="flags/French Polynesia.png" /> <h3>French Polynesia <br/><span>31.9 years</span></h3></div></div>
+    <div class="om50 om"><div class="country nauru"><img src="flags/Nauru.png" /> <h3>Nauru <br/><span>26.4 years</span></h3></div>
+                        <div class="country chile"><img src="flags/Chile.png" /> <h3>Chile <br/><span>34.4 years</span></h3></div></div>
+  </div>
+  <div id="axis">
+    <div class="fiveyears"><small>AGE</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>2</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>3</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>4</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>5</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>6</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>7</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>8</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>9</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>10</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>11</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>12</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>13</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>14</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>15</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>16</p><div class="halfyear firsthalfyear"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>17</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>18</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>19</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+    </div>
+    <div class="fiveyears"><small>20</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>21</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>22</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>23</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>24</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+    </div>
+    <div class="fiveyears"><small>25</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>26</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>27</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>28</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>29</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+    </div>
+    <div class="fiveyears"><small>30</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>31</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>32</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>33</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>34</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+    </div>
+    <div class="fiveyears"><small>35</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear has"></div><div class="halfyear"></div></div>
+      <div class="year"><p>36</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>37</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>38</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>39</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+    </div>
+    <div class="fiveyears"><small>40</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>41</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>42</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>43</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>44</p><div class="halfyear firsthalfyear has"></div><div class="halfyear has"></div></div>
+    </div>
+    <div class="fiveyears"><small>45</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>45</p><div class="halfyear firsthalfyear"></div><div class="halfyear has"></div></div>
+      <div class="year"><p>46</p><div class="halfyear firsthalfyear has"></div><div class="halfyear"></div></div>
+      <div class="year"><p>47</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>48</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>50</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>51</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>52</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>53</p><div class="halfyear firsthalfyear has"></div><div class="halfyear"></div></div>
+      <div class="year"><p>54</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>55</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>56</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>57</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>58</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>59</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>60</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>61</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>62</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>63</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>64</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>65</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>66</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>67</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>68</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>69</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+    <div class="fiveyears"><small>70</small>
+      <div class="year firstyear"><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>71</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>72</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>73</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+      <div class="year"><p>74</p><div class="halfyear firsthalfyear"></div><div class="halfyear"></div></div>
+    </div>
+  </div>
+
+</div>
+<div id="about">
+  <div id="aboutleft">
+    <h2>The concept</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet egestas ipsum, vitae laoreet quam auctor sed. Nam molestie ultricies urna, ut mollis ipsum imperdiet posuere. Donec bibendum lorem ac justo tincidunt cursus. Aliquam ullamcorper blandit luctus. Phasellus placerat, dui non molestie aliquam, ex lectus bibendum lacus, vitae viverra leo arcu quis nisi. In hac habitasse platea dictumst. Etiam ac felis consectetur, hendrerit nisi a, varius quam. Mauris feugiat fermentum nisi, vel blandit diam eleifend at.</p>
+  </div>
+  <div id="aboutright">
+    <h2>How to use & understand it</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla imperdiet egestas ipsum, vitae laoreet quam auctor sed. Nam molestie ultricies urna, ut mollis ipsum imperdiet posuere. Donec bibendum lorem ac justo tincidunt cursus. Aliquam ullamcorper blandit luctus. Phasellus placerat, dui non molestie aliquam, ex lectus bibendum lacus, vitae viverra leo arcu quis nisi. In hac habitasse platea dictumst. Etiam ac felis consectetur, hendrerit nisi a, varius quam. Mauris feugiat fermentum nisi, vel blandit diam eleifend at.</p>
+  </div>
+</div>
+</body>
+</html>
